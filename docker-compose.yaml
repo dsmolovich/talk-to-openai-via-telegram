@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: debug
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LOG_LEVEL=debug
+    volumes:
+      - ./src:/src
+    ports:
+      - "5678:5678"
